@@ -21,15 +21,20 @@ bootJar {
 repositories {
     mavenCentral()
 }
+configurations {
+    compile.exclude module: 'spring-boot-starter-tomcat'
+}
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+
    compile("org.springframework.boot:spring-boot-starter-web")
    compile("io.springfox:springfox-swagger2:2.9.2")
-    compile("io.springfox:springfox-swagger-ui:2.9.2")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    testCompile("org.springframework.boot:spring-boot-starter-test")
-    testCompile("junit:junit")
+   compile("io.springfox:springfox-swagger-ui:2.9.2")
+   compile("org.springframework.boot:spring-boot-starter-jetty")
+   compile("org.springframework.boot:spring-boot-starter-actuator")
+   testCompile("org.springframework.boot:spring-boot-starter-test")
+   testCompile("junit:junit")
 }
