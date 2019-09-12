@@ -5,20 +5,34 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TransferMoneyResponse {
 
     @JsonProperty("confirmationId")
-	private final long confirmationId;
-    @JsonProperty("content")
-    private final String content;
+	private long confirmationId;
+    @JsonProperty("message")
+    private String message;
+    
+    public TransferMoneyResponse() {
+		// TODO Auto-generated constructor stub
+	}
 
-    public TransferMoneyResponse(long confirmationId, String content) {
+    public TransferMoneyResponse(long confirmationId, String message) {
         this.confirmationId = confirmationId;
-        this.content = content;
+        this.message = message;
     }
 
-    public long getConfirmationId() {
-        return confirmationId;
-    }
+	public long getConfirmationId() {
+		return confirmationId;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public void setConfirmationId(long confirmationId) {
+		this.confirmationId = confirmationId;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	
 }
