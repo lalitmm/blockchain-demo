@@ -1,0 +1,7 @@
+
+<app-from-account [moveMoneyActions]="moveMoneyActions" [moveMoneyRequest]="moveMoneyRequest"></app-from-account>
+
+<app-amount-details *ngIf="moveMoneyActions.isFromAccountSubmitted" [moveMoneyActions]="moveMoneyActions" [moveMoneyRequest]="moveMoneyRequest"></app-amount-details>
+
+<app-beneficiary *ngIf="moveMoneyActions.isAmountDetailsSubmitted" [moveMoneyActions]="moveMoneyActions" [moveMoneyRequest]="moveMoneyRequest"></app-beneficiary>
+

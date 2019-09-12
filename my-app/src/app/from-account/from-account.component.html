@@ -1,0 +1,23 @@
+<div class="content-container">
+    <form [formGroup]="fromAccountForm">
+      <div class="row">
+        <div class="col-25">
+          <label for="fromAccount">From Account:</label>
+        </div>
+        <div class="col-75">
+            <select id="fromAccount" name="fromAccount" class="form-control" formControlName="fromAccount" id="fromAccount">
+                <option value="Chequing **1223">Chequing **1223</option>
+                <option value="Savings **8990">Savings **8990</option>
+                <option value="TFSA Savings **6776">TFSA Savings **6776</option>
+                <option value="RSP Savings **3443">RSP Savings **3443</option>
+              </select>
+          <div *ngIf="isNextClicked && fromAccountForm.controls.fromAccount.errors" class="error">
+            <div *ngIf="fromAccountForm.controls.fromAccount.errors.required">From Account is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <button class="movemoney-button" [disabled]="isNextClicked" (click)="onNext()">NEXT</button>
+      </div>    
+    </form>
+  </div>

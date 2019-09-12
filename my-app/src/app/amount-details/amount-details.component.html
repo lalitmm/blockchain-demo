@@ -1,0 +1,54 @@
+<div class="content-container">
+    <form [formGroup]="amountDetailsForm">
+      <div class="row">
+        <div class="col-25">
+          <label for="amount">Amount:</label>
+        </div>
+        <div class="col-75">
+          <input type="text" class="form-control" formControlName="fromAmount" id="fromAmount">
+          <div *ngIf="submitted && amountDetailsForm.controls.fromAmount.errors" class="error">
+            <div *ngIf="amountDetailsForm.controls.fromAmount.errors.required">From Amount is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="country">Country</label>
+        </div>
+        <div class="col-75">
+          <select id="country" name="country" class="form-control" formControlName="country">
+            <option value="AUD">Australia Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="USD">US Dollar</option>
+            <option value="MXN">Mexico Peso</option>
+          </select>
+          <div *ngIf="submitted && amountDetailsForm.controls.country.errors" class="error">
+            <div *ngIf="amountDetailsForm.controls.country.required">Country is required</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+            <button type="button" class="movemoney-button" [disabled]="submitted" (click)="calculate()">Calculate</button>
+      </div>    
+      <div class="row">
+              <label class="description" for="description">{{descr}}</label>
+      </div>  
+      <div class="row">
+        <div class="col-25">
+            <label for="transferamount">Transfer Amount:</label>
+        </div>
+        <div class="col-75">
+          <input type="text" class="form-control" formControlName="transferamount" id="transferamount">
+            <div *ngIf="submitted && amountDetailsForm.controls.transferamount.errors" class="error">
+              <div *ngIf="amountDetailsForm.controls.transferamount.required">Transfer Amount is required</div>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+       <!--    <div class="col-50">
+              <button type="button" class="btn btn-default" (click)="cancel()">BACK</button>
+          </div> -->
+              <button class="movemoney-button" [disabled]="submitted" (click)="onNext()">NEXT</button>
+      </div>      
+    </form>
+  </div>
